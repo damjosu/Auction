@@ -102,6 +102,9 @@ public class Auction
         }
     }
     
+    /**
+     * Devuelve los detalles de todos los objetos, y si hay alguna puja devuelve la mas alta, y el pujador que la hizo.
+     */
     public void close()
     {        
         for (Lot item : lots)
@@ -112,5 +115,21 @@ public class Auction
                 System.out.println((item.getHighestBid().getBidder()).getName());
             }            
         }        
+    }
+    
+    /**
+     * Devuelve una colección de todos los items por los que no habido ninguna puja en este momento.
+     */
+    public ArrayList getUnsold()
+    {
+        ArrayList<Lot> copia = new ArrayList<>();        
+        for (Lot item : lots)
+        {
+            if (item.getHighestBid() == null)
+            {
+                copia.add(item);
+            }
+        }   
+        return copia;
     }
 }
