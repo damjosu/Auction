@@ -101,4 +101,16 @@ public class Auction
             return null;
         }
     }
+    
+    public void close()
+    {        
+        for (Lot item : lots)
+        {
+            System.out.println(item.toString());
+            if (item.getHighestBid() != null)
+            {
+                System.out.println((item.getHighestBid().getBidder()).getName());
+            }            
+        }        
+    }
 }
